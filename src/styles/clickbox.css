@@ -1,0 +1,44 @@
+
+.click-box{
+    border: 1px solid #ddd;
+    min-width: 100px;
+    padding: 10px;
+    cursor: pointer;
+    transition:0.5s;
+    border-radius: 10px;
+}
+
+.bottom-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transition:0.3s; */
+    /* transition:2s; */
+}
+
+.click-box:hover{
+    transform: scale(1.2);
+    background-color: rgb(244, 250, 255);
+    /* animation-name: click-box-animation;
+    animation-duration: 2s; */
+}
+
+.click-box:active{
+    background-color: rgb(127, 168, 255);
+    transform: scale(1.1);
+}
+
+/* @keyframes click-box-animation {
+    from{
+
+    }
+    to{
+        transform: scale(1.2);
+    }
+} */
+
+
+/* .click-box: */
+
