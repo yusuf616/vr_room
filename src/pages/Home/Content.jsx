@@ -3,12 +3,13 @@ import { MyModal } from "components/MyModal/MyModal";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa"
 import { ClickBox } from "utils/ClickBox"
-
+import { useDispatch } from "react-redux";
 
 export const Content = ({
     style = {},
     className = " "
-}) => {
+}) =>{ 
+    const dispatch=useDispatch();
     const [openModal, setOpenModal] = useState(false);
     const toggaleModal = () => {
         setOpenModal(!openModal);
@@ -16,31 +17,21 @@ export const Content = ({
     const componentClassName = '  w-full h-full flex items-center justify-center ' + className;
     const componentStyle = { ...style };
 
+    const handleSubmit=(e)=>{
+    
+        console.log(e);
+    }
+
+
+
     return (<div style={componentStyle} className={componentClassName} >
         <MyModal
             isOpen={openModal}
             toggle={toggaleModal}
         >
-            <Form 
-                inputs={[
-                    {
-                        type: 'text',
-                        name:'room_name',
-                        placeholder: 'room name'
-                    },
-                    {
-                        type: 'text',
-                        name:'room_name1',
-                        placeholder: 'room name1'
-                    },
-                
-                ]}
-                onSubmit={(e)=>console.log(e)}
-                submitTitle={"Add"}
-            
-            />
-
-
+            <Form onSubmit={handleSubmit} submitTitle={"Add"} > 
+                <input type="text" name='room_name' placeholder="room name"/>
+            </Form>
         </MyModal>
         <ClickBox onClick={toggaleModal} ><FaPlus size={30} color='#00f' /></ClickBox>
     </div>)
