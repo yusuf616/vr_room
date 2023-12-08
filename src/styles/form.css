@@ -1,0 +1,24 @@
+.form {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.form input {
+    background-color: rgb(250, 250, 250);
+    border-bottom: 2px solid #ddd;
+    width: 90%;
+    margin: 10px;
+    padding: 10px 10px;
+    transition: 0.5s;
+    border-radius: 5px 5px 0 0;
+}
+
+.form input:focus {
+    outline: none;
+    /* margin: 9px;
+    padding: 11px 11px; */
+    border-color: aqua;
+    /* background-color: rgb(255, 184, 184); */
+}
+
