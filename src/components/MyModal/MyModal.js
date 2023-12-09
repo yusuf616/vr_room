@@ -15,7 +15,6 @@ export const MyModal = ({
     useEffect(() => {
 
     }, [isOpen]);
-    console.log(children);
     return (<Modal
         isOpen={isOpen}
         toggle={toggleModal}
