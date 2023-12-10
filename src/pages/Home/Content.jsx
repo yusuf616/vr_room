@@ -16,7 +16,7 @@ export const Content = ({
     const componentStyle = { ...style };
     const dispatch = useDispatch();
     const { rooms } = useSelector(state => state);
-    const roomsLengthRef = useRef(0);
+    const roomsLengthRef = useRef(null);
     const [openModal, setOpenModal] = useState('');
     const [selectRoom, setSelectRoom] = useState(null);
     const toggaleModal = (type) => {
@@ -35,8 +35,9 @@ export const Content = ({
     }
 
     useEffect(() => {
-        roomsLengthRef.current = rooms?.length;
-    }, []);
+        if(roomsLengthRef.current===null && rooms?.length )
+            roomsLengthRef.current = rooms?.length
+    }, [rooms]);
 
 
     useEffect(() => {
@@ -65,9 +66,12 @@ export const Content = ({
             </Form> : <></>}
             {openModal === 'show' ? <RoomContent room={selectRoom} /> : <></>}
         </MyModal>
+
         <div className=" row p-12 ">
             <RoomsBoxes className=" col-12 col-md-6 col-lg-4 col-xl-3 h-32 my-2 " onClick={handleClickRoom} />
         </div>
+        
         <ClickBox onClick={() => toggaleModal('add')} style={{ width: '200px' }} ><FaPlus size={30} color='#00f' /></ClickBox>
+    
     </div >);
 }
